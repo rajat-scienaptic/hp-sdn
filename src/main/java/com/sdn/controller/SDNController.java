@@ -46,9 +46,14 @@ public class SDNController {
         return new ResponseEntity<>(sdnCrudService.getCountries(), HttpStatus.OK);
     }
 
-    @GetMapping("/getSku/{id}")
-    public final ResponseEntity<Object> getSkuByCountryId(@PathVariable("id") int id) {
-        return new ResponseEntity<>(sdnCrudService.getSku(id), HttpStatus.OK);
+    @GetMapping("/getCountriesByType/{type}")
+    public final ResponseEntity<Object> getCountriesByType(@PathVariable(value = "type", required = false) String type){
+        return new ResponseEntity<>(sdnCrudService.getCountriesByType(type), HttpStatus.OK);
+    }
+
+    @GetMapping("/getSku/{countryMarketPlace}")
+    public final ResponseEntity<Object> getSkuByCountryId(@PathVariable("countryMarketPlace") String countryMarketPlace) {
+        return new ResponseEntity<>(sdnCrudService.getSku(countryMarketPlace), HttpStatus.OK);
     }
 
     @PutMapping("/updateSdnData/{id}")

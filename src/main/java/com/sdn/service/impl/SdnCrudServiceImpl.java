@@ -4,7 +4,9 @@ import com.sdn.constants.Constants;
 import com.sdn.dto.FilterRequestDTO;
 import com.sdn.dto.SdnDataDTO;
 import com.sdn.exceptions.CustomException;
-import com.sdn.model.*;
+import com.sdn.model.SdcViolations;
+import com.sdn.model.SdnData;
+import com.sdn.model.SdnDataChangeLogs;
 import com.sdn.repository.*;
 import com.sdn.service.SdnCrudService;
 import com.sdn.service.UserValidationService;
@@ -144,13 +146,18 @@ public class SdnCrudServiceImpl implements SdnCrudService {
     }
 
     @Override
-    public List<Country> getCountries() {
-        return countryRepository.findAll();
+    public List<String> getCountries() {
+        return sdnDataRepository.getCountries();
     }
 
     @Override
-    public List<SKU> getSku(int id) {
-        return skuRepository.findAllByCountryId(id);
+    public List<String> getCountriesByType(String type) {
+        return sdnDataRepository.getCountriesByType(type);
+    }
+
+    @Override
+    public List<String> getSku(String countryMarketPlace) {
+        return sdnDataRepository.getSKUs(countryMarketPlace);
     }
 
     @Override

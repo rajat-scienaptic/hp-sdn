@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="maven-antrun-" default="main"  >
 <target name="main">
-  <copy todir="/home/rajat/IdeaProjects/Personal/Dawg/SDN_Monitoring_Tool/target/classes/public">
-    <fileset dir="/home/rajat/IdeaProjects/Personal/Dawg/SDN_Monitoring_Tool/src/main/resources/build"/>
+  <copy todir="/home/rajat/IdeaProjects/HP/SDN_Monitoring_Tool/target/classes/public">
+    <fileset dir="/home/rajat/IdeaProjects/HP/SDN_Monitoring_Tool/src/main/resources/build"/>
   </copy>
 </target>
 </project>
