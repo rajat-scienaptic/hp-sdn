@@ -1,5 +1,6 @@
 package com.sdn.controller;
 
+import com.sdn.dto.CountrySkuDTO;
 import com.sdn.dto.FilterRequestDTO;
 import com.sdn.dto.SdnDataDTO;
 import com.sdn.exceptions.CustomException;
@@ -41,19 +42,14 @@ public class SDNController {
         return new ResponseEntity<>("Data Added", HttpStatus.CREATED);
     }
 
-    @GetMapping("/getCountries")
-    public final ResponseEntity<Object> getCountries() {
-        return new ResponseEntity<>(sdnCrudService.getCountries(), HttpStatus.OK);
+    @PostMapping("/getCountries")
+    public final ResponseEntity<Object> getCountries(@RequestBody(required = false)CountrySkuDTO countrySkuDTO) {
+        return new ResponseEntity<>(sdnCrudService.getCountries(countrySkuDTO), HttpStatus.OK);
     }
 
-    @GetMapping("/getCountriesByType/{type}")
-    public final ResponseEntity<Object> getCountriesByType(@PathVariable(value = "type", required = false) String type){
-        return new ResponseEntity<>(sdnCrudService.getCountriesByType(type), HttpStatus.OK);
-    }
-
-    @GetMapping("/getSku/{countryMarketPlace}")
-    public final ResponseEntity<Object> getSkuByCountryId(@PathVariable("countryMarketPlace") String countryMarketPlace) {
-        return new ResponseEntity<>(sdnCrudService.getSku(countryMarketPlace), HttpStatus.OK);
+    @PostMapping("/getSkus")
+    public final ResponseEntity<Object> getSkuByCountryId(@RequestBody(required = false)CountrySkuDTO countrySkuDTO) {
+        return new ResponseEntity<>(sdnCrudService.getSku(countrySkuDTO), HttpStatus.OK);
     }
 
     @PutMapping("/updateSdnData/{id}")

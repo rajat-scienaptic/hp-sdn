@@ -8,11 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SDN_Monitoring_Tool" />
+        <module name="HP-SDN" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="HP-SDN" options="-parameters" />
       <module name="SDN_Monitoring_Tool" options="-parameters" />
     </option>
   </component>

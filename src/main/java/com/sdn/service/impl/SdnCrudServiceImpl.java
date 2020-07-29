@@ -1,6 +1,7 @@
 package com.sdn.service.impl;
 
 import com.sdn.constants.Constants;
+import com.sdn.dto.CountrySkuDTO;
 import com.sdn.dto.FilterRequestDTO;
 import com.sdn.dto.SdnDataDTO;
 import com.sdn.exceptions.CustomException;
@@ -146,18 +147,19 @@ public class SdnCrudServiceImpl implements SdnCrudService {
     }
 
     @Override
-    public List<String> getCountries() {
-        return sdnDataRepository.getCountries();
+    public List<String> getCountries(CountrySkuDTO countrySkuDTO) {
+        if (countrySkuDTO.getType().equalsIgnoreCase("both")) {
+            return sdnDataRepository.getCountries();
+        }
+        return sdnDataRepository.getCountriesByType(countrySkuDTO.getType());
     }
 
     @Override
-    public List<String> getCountriesByType(String type) {
-        return sdnDataRepository.getCountriesByType(type);
-    }
-
-    @Override
-    public List<String> getSku(String countryMarketPlace) {
-        return sdnDataRepository.getSKUs(countryMarketPlace);
+    public List<String> getSku(CountrySkuDTO countrySkuDTO) {
+        if(countrySkuDTO.getType().equalsIgnoreCase("both")){
+          return sdnDataRepository.getSKUs(countrySkuDTO.getCountryMarketPlace());
+        }
+        return sdnDataRepository.getSKUsByMarketPlaceAndType(countrySkuDTO.getCountryMarketPlace(), countrySkuDTO.getType());
     }
 
     @Override

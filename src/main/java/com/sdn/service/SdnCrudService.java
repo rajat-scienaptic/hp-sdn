@@ -1,5 +1,6 @@
 package com.sdn.service;
 
+import com.sdn.dto.CountrySkuDTO;
 import com.sdn.dto.FilterRequestDTO;
 import com.sdn.dto.SdnDataDTO;
 import com.sdn.model.SdcViolations;
@@ -16,9 +17,8 @@ public interface SdnCrudService {
  List<SdnData> getAllSdnDataWithFilter(FilterRequestDTO filterRequestDTO);
  Optional<SdnData> updateSdnData(int id, SdnDataDTO sdnDataDTO, String cookies) throws ParseException;
  List<SdnDataChangeLogs> archiveSdnData(int id);
- List<String> getCountries();
- List<String> getCountriesByType(String type);
- List<String> getSku(String countryMarketPlace);
+ List<String> getCountries(CountrySkuDTO countrySkuDTO);
+ List<String> getSku(CountrySkuDTO countrySkuDTO);
  void fillSDNData(MultipartFile file);
  List<SdcViolations> getSdcViolations();
 }

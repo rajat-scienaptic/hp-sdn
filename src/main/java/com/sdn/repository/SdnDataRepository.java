@@ -24,4 +24,7 @@ public interface SdnDataRepository extends CrudRepository<SdnData, Integer>, Jpa
 
     @Query(value = "select distinct(s.typeOfSku) from SdnData s where s.countryMarketPlace = :countryMarketPlace")
     List<String> getSKUs(@Param("countryMarketPlace") String countryMarketPlace);
+
+    @Query(value = "select distinct(s.typeOfSku) from SdnData s where s.countryMarketPlace = :countryMarketPlace and s.type = :type")
+    List<String> getSKUsByMarketPlaceAndType(@Param("countryMarketPlace") String countryMarketPlace, @Param("type") String type);
 }
