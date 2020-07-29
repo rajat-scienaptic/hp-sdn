@@ -3,6 +3,7 @@ package com.sdn.service;
 import com.sdn.dto.CountrySkuDTO;
 import com.sdn.dto.FilterRequestDTO;
 import com.sdn.dto.SdnDataDTO;
+import com.sdn.model.Region;
 import com.sdn.model.SdcViolations;
 import com.sdn.model.SdnData;
 import com.sdn.model.SdnDataChangeLogs;
@@ -18,6 +19,7 @@ public interface SdnCrudService {
  Optional<SdnData> updateSdnData(int id, SdnDataDTO sdnDataDTO, String cookies) throws ParseException;
  List<SdnDataChangeLogs> archiveSdnData(int id);
  List<String> getCountries(CountrySkuDTO countrySkuDTO);
+ List<Region> getRegions(CountrySkuDTO countrySkuDTO);
  List<String> getSku(CountrySkuDTO countrySkuDTO);
  void fillSDNData(MultipartFile file);
  List<SdcViolations> getSdcViolations();

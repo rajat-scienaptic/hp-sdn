@@ -22,8 +22,4 @@ public class Country {
 
     @Column(name = "country_marketplace")
     private String countryMarketPlace;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "country_id", referencedColumnName = "id")
-    Set<SKU> skus;
 }

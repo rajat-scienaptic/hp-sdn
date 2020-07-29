@@ -42,6 +42,11 @@ public class SDNController {
         return new ResponseEntity<>("Data Added", HttpStatus.CREATED);
     }
 
+    @PostMapping("/getRegions")
+    public final ResponseEntity<Object> getRegions(@RequestBody(required = false)CountrySkuDTO countrySkuDTO) {
+        return new ResponseEntity<>(sdnCrudService.getCountries(countrySkuDTO), HttpStatus.OK);
+    }
+
     @PostMapping("/getCountries")
     public final ResponseEntity<Object> getCountries(@RequestBody(required = false)CountrySkuDTO countrySkuDTO) {
         return new ResponseEntity<>(sdnCrudService.getCountries(countrySkuDTO), HttpStatus.OK);

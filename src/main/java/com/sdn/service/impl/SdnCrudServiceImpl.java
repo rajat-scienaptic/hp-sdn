@@ -42,8 +42,6 @@ public class SdnCrudServiceImpl implements SdnCrudService {
     @Autowired
     SdnDataChangeLogsRepository sdnDataChangeLogsRepository;
     @Autowired
-    SkuRepository skuRepository;
-    @Autowired
     UserValidationService userValidationService;
 
     Logger logger = LoggerFactory.getLogger(SdnCrudServiceImpl.class);
