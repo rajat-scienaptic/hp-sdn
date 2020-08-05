@@ -1,13 +1,10 @@
 package com.sdn.service.impl;
 
 import com.sdn.constants.Constants;
-import com.sdn.dto.CountrySkuDTO;
 import com.sdn.dto.FilterRequestDTO;
 import com.sdn.dto.SdnDataDTO;
 import com.sdn.exceptions.CustomException;
-import com.sdn.model.SdcViolations;
-import com.sdn.model.SdnData;
-import com.sdn.model.SdnDataChangeLogs;
+import com.sdn.model.*;
 import com.sdn.repository.*;
 import com.sdn.service.SdnCrudService;
 import com.sdn.service.UserValidationService;
@@ -30,11 +27,10 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class SdnCrudServiceImpl implements SdnCrudService {
-    @Autowired
-    CountryRepository countryRepository;
     @Autowired
     SdcViolationsRepository sdcViolationsRepository;
     @Autowired
@@ -43,26 +39,43 @@ public class SdnCrudServiceImpl implements SdnCrudService {
     SdnDataChangeLogsRepository sdnDataChangeLogsRepository;
     @Autowired
     UserValidationService userValidationService;
+    @Autowired
+    RegionRepository regionRepository;
 
     Logger logger = LoggerFactory.getLogger(SdnCrudServiceImpl.class);
     SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_PATTERN);
 
     @Override
     public List<SdnData> getAllSdnData() {
-        return sdnDataRepository.getSdnData();
+        Date date = new Date();
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, -7);
+        return sdnDataRepository.getSdnData(cal.getTime(), date);
     }
 
     @Override
     public List<SdnData> getAllSdnDataWithFilter(FilterRequestDTO filterRequestDTO) {
-        return findSdnDataByCriteria(filterRequestDTO);
+        if(filterRequestDTO.getCustomerMarket() == null || filterRequestDTO.getCustomerMarket().isEmpty()){
+            return findSdnDataByCriteria(filterRequestDTO, null);
+        }else {
+            Region region = regionRepository.findByCustomerMarket(filterRequestDTO.getCustomerMarket());
+            List<SdnData> sdnDataList = new LinkedList<>();
+            for (Country country : region.getCountries()) {
+                List<SdnData> sdnData = findSdnDataByCriteria(filterRequestDTO, country.getCountryMarketPlace());
+                sdnDataList = Stream.concat(sdnDataList.stream(), sdnData.stream())
+                        .collect(Collectors.toList());
+            }
+            return sdnDataList;
+        }
     }
 
-    public List<SdnData> findSdnDataByCriteria(FilterRequestDTO filterRequestDTO) {
+    public List<SdnData> findSdnDataByCriteria(FilterRequestDTO filterRequestDTO, String countryMarketPlace) {
         return sdnDataRepository.findAll(
                 (root, query, criteriaBuilder) -> {
                     List<Predicate> predicates = new ArrayList<>();
-                    if (filterRequestDTO.getCountry() != null && !filterRequestDTO.getCountry().isEmpty()) {
-                        predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("countryMarketPlace"), filterRequestDTO.getCountry())));
+                    if (countryMarketPlace != null && !countryMarketPlace.isEmpty()) {
+                        predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("countryMarketPlace"), countryMarketPlace)));
                     }
                     if (filterRequestDTO.getSku() != null && !filterRequestDTO.getSku().isEmpty()) {
                         predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("typeOfSku"), filterRequestDTO.getSku())));
@@ -145,19 +158,36 @@ public class SdnCrudServiceImpl implements SdnCrudService {
     }
 
     @Override
-    public List<String> getCountries(CountrySkuDTO countrySkuDTO) {
-        if (countrySkuDTO.getType().equalsIgnoreCase("both")) {
-            return sdnDataRepository.getCountries();
-        }
-        return sdnDataRepository.getCountriesByType(countrySkuDTO.getType());
+    public List<String> getRegions() {
+        List<Region> regions = regionRepository.findAll();
+        List<String> regionList = new LinkedList<>();
+        regions.forEach(region -> regionList.add(region.getCustomerMarket()));
+        return regionList;
     }
 
     @Override
-    public List<String> getSku(CountrySkuDTO countrySkuDTO) {
-        if(countrySkuDTO.getType().equalsIgnoreCase("both")){
-          return sdnDataRepository.getSKUs(countrySkuDTO.getCountryMarketPlace());
+    public List<String> getSkus(FilterRequestDTO filterRequestDTO) {
+        if(filterRequestDTO.getType().equalsIgnoreCase("both")
+                && (filterRequestDTO.getCustomerMarket() == null || filterRequestDTO.getCustomerMarket().isEmpty())){
+            return sdnDataRepository.getAllSkus();
         }
-        return sdnDataRepository.getSKUsByMarketPlaceAndType(countrySkuDTO.getCountryMarketPlace(), countrySkuDTO.getType());
+        if((filterRequestDTO.getType().equalsIgnoreCase("contractual") || filterRequestDTO.getType().equalsIgnoreCase("transactional"))
+                && (filterRequestDTO.getCustomerMarket() == null || filterRequestDTO.getCustomerMarket().isEmpty())){
+            return sdnDataRepository.getSkuByType(filterRequestDTO.getType());
+        }
+        Region region = regionRepository.findByCustomerMarket(filterRequestDTO.getCustomerMarket());
+        List<String> skuList = new LinkedList<>();
+        for (Country country : region.getCountries()) {
+            List<String> sdnData;
+            if (filterRequestDTO.getType().equalsIgnoreCase("both")) {
+                sdnData = sdnDataRepository.getSkuByCountryMarketPlace(country.getCountryMarketPlace());
+            } else {
+                sdnData = sdnDataRepository.getSkuByCustomerMarketAndType(country.getCountryMarketPlace(), filterRequestDTO.getType());
+            }
+            skuList = Stream.concat(skuList.stream(), sdnData.stream())
+                    .collect(Collectors.toList());
+        }
+        return skuList;
     }
 
     @Override

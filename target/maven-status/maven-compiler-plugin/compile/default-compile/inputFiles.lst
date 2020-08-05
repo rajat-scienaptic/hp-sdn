@@ -19,7 +19,6 @@ C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\reposi
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\model\User.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\repository\SdcViolationsRepository.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\dto\FilterRequestDTO.java
-C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\model\SKU.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\model\SdnContractualMonitoringGoogle.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\constants\Constants.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\dto\ApiResponseDTO.java
@@ -30,12 +29,13 @@ C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\model\
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\service\impl\PipelineServiceImpl.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\service\impl\SdnCrudServiceImpl.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\dto\SdnDataDTO.java
-C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\repository\CountryRepository.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\model\SdcViolations.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\service\PipelineService.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\model\SdnTransactionMonitoringMarketplaces.java
+C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\model\Region.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\model\SdnData.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\model\SdnActivityLogs.java
+C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\repository\RegionRepository.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\config\CORSFilter.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\config\SwaggerConfig.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\service\SdnCrudService.java
@@ -43,4 +43,3 @@ C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\config
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\controller\PipelineController.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\repository\SdnActivityLogsRepository.java
 C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\model\SdcViolationsType.java
-C:\Users\rajat\Documents\Projects\Scienaptic\HP-SDN\src\main\java\com\sdn\repository\SkuRepository.java

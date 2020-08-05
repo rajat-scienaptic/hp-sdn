@@ -27,15 +27,12 @@ public class SdnContractualMonitoringMarketPlaces {
     private Integer sellerId;
     @Column(name = "seller_location")
     private String sellerLocation;
-    @Column(name = "country_seller")
-    private String countrySeller;
     @Column(name = "sku")
     private String sku;
     @Column(name = "sku_type")
     private String skuType;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     @Column(name = "publication_date")
-    private Date publicationDate;
+    private String publicationDate;
     @Column(name = "created_timestamp")
     private LocalDateTime createdTimestamp;
 }

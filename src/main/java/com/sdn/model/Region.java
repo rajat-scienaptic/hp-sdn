@@ -3,7 +3,7 @@ package com.sdn.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "region")
@@ -19,5 +19,5 @@ public class Region {
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "region_id", referencedColumnName = "id")
-    Set<Country> countries;
+    List<Country> countries;
 }

@@ -29,7 +29,7 @@ public class SdnTransactionMonitoringWebsites {
     private String countryMonitored;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     @Column(name = "review_date")
-    private Date reviewDate;
+    private String reviewDate;
     @Column(name = "seller_id_and_contract_details")
     private Integer sellerIdAndContractDetails;
     @Column(name = "vat")

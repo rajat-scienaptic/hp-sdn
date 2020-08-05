@@ -1,6 +1,5 @@
 package com.sdn.controller;
 
-import com.sdn.dto.CountrySkuDTO;
 import com.sdn.dto.FilterRequestDTO;
 import com.sdn.dto.SdnDataDTO;
 import com.sdn.exceptions.CustomException;
@@ -43,18 +42,13 @@ public class SDNController {
     }
 
     @PostMapping("/getRegions")
-    public final ResponseEntity<Object> getRegions(@RequestBody(required = false)CountrySkuDTO countrySkuDTO) {
-        return new ResponseEntity<>(sdnCrudService.getCountries(countrySkuDTO), HttpStatus.OK);
-    }
-
-    @PostMapping("/getCountries")
-    public final ResponseEntity<Object> getCountries(@RequestBody(required = false)CountrySkuDTO countrySkuDTO) {
-        return new ResponseEntity<>(sdnCrudService.getCountries(countrySkuDTO), HttpStatus.OK);
+    public final ResponseEntity<Object> getRegions() {
+        return new ResponseEntity<>(sdnCrudService.getRegions(), HttpStatus.OK);
     }
 
     @PostMapping("/getSkus")
-    public final ResponseEntity<Object> getSkuByCountryId(@RequestBody(required = false)CountrySkuDTO countrySkuDTO) {
-        return new ResponseEntity<>(sdnCrudService.getSku(countrySkuDTO), HttpStatus.OK);
+    public final ResponseEntity<Object> getSkus(@RequestBody(required = false)FilterRequestDTO filterRequestDTO) {
+        return new ResponseEntity<>(sdnCrudService.getSkus(filterRequestDTO), HttpStatus.OK);
     }
 
     @PutMapping("/updateSdnData/{id}")

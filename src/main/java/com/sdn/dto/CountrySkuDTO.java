@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @Builder(toBuilder = true)
 @Data
 public class CountrySkuDTO {
-    private String countryMarketPlace;
+    private String customerMarket;
     private String type;
 }

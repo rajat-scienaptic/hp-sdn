@@ -2,8 +2,6 @@ com\sdn\model\SdnDataChangeLogs$SdnDataChangeLogsBuilder.class
 com\sdn\service\impl\SdnCrudServiceImpl.class
 com\sdn\model\SdcViolations.class
 com\sdn\dto\FilterRequestDTO.class
-com\sdn\model\SKU.class
-com\sdn\model\SKU$SKUBuilder.class
 com\sdn\repository\SdcViolationsRepository.class
 com\sdn\service\PipelineService.class
 com\sdn\exceptions\GlobalExceptionHandlerController.class
@@ -11,8 +9,10 @@ com\sdn\repository\SdnContractualMonitoringMarketplacesRepository.class
 com\sdn\model\SdnContractualMonitoringMarketPlaces.class
 com\sdn\repository\SdnDataRepository.class
 com\sdn\repository\SdnTransactionMonitoringMarketplacesRepository.class
+com\sdn\dto\FilterRequestDTO$FilterRequestDTOBuilder.class
 com\sdn\model\SdnTransactionMonitoringMarketplaces.class
 com\sdn\model\Partner.class
+com\sdn\repository\RegionRepository.class
 com\sdn\model\SdcViolations$SdcViolationsBuilder.class
 com\sdn\service\SdnCrudService.class
 com\sdn\model\SdcViolationsType.class
@@ -35,10 +35,10 @@ com\sdn\model\SdnDataChangeLogs.class
 com\sdn\controller\PipelineController.class
 com\sdn\dto\CountrySkuDTO.class
 com\sdn\exceptions\GlobalExceptionHandlerController$Error.class
-com\sdn\repository\CountryRepository.class
 com\sdn\service\impl\PipelineServiceImpl.class
 com\sdn\model\SdnTransactionMonitoringWebsites.class
 com\sdn\model\User.class
+com\sdn\model\Region.class
 com\sdn\model\SdnData.class
 com\sdn\controller\UserController.class
 com\sdn\model\SdnEnforcements.class
@@ -55,4 +55,3 @@ com\sdn\repository\SdnContractualMonitoringGoogleRepository.class
 com\sdn\constants\Constants.class
 com\sdn\model\SdnContractualMonitoringGoogle.class
 com\sdn\config\WebMvcReactRoutingConfiguration.class
-com\sdn\repository\SkuRepository.class
