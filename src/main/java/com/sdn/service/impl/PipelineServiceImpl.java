@@ -1,8 +1,7 @@
 package com.sdn.service.impl;
 
-import com.sdn.constants.Constants;
-import com.sdn.model.*;
-import com.sdn.repository.*;
+import com.sdn.model.sdn.*;
+import com.sdn.repository.sdn.*;
 import com.sdn.service.PipelineService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
