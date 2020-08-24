@@ -55,34 +55,6 @@ public class SdnData {
     private String notes;
     @Column(name = "type")
     private String type;
-    @Column(name = "seller_id_and_contract_details")
-    private String sellerIdAndContractDetails;
-    @Column(name = "vat")
-    private String vat;
-    @Column(name = "phone_number")
-    private String phoneNumber;
-    @Column(name = "email_address")
-    private String emailAddress;
-    @Column(name = "physical_address")
-    private String physicalAddress;
-    @Column(name = "correct_image")
-    private String correctImage;
-    @Column(name = "naming")
-    private String naming;
-    @Column(name = "product_name")
-    private String productName;
-    @Column(name = "sku_naming")
-    private String skuNaming;
-    @Column(name = "compatible_printers")
-    private String compatiblePrinters;
-    @Column(name = "co_operation")
-    private String coOperation;
-    @Column(name = "avoid_customer_confusion")
-    private String avoidCustomerConfusion;
-    @Column(name = "grey_trade")
-    private String greyTrade;
-    @Column(name = "shopping_experience")
-    private String shoppingExperience;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy HH:mm:ss")
     @Column(name = "created_timestamp")
     private LocalDateTime createdTimestamp;

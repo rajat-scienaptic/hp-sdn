@@ -1,7 +1,5 @@
 package com.sdn.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -13,8 +11,6 @@ import java.io.IOException;
 
 @Component
 public class CORSFilter extends OncePerRequestFilter {
-
-    static Logger logger = LoggerFactory.getLogger(CORSFilter.class);
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
