@@ -57,6 +57,8 @@ public class SdnDataChangeLogs {
     private String sdcViolations;
     @Column(name = "notes")
     private String notes;
+    @Column(name = "outcome")
+    private String outcome;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy HH:mm:ss")
     @Column(name = "last_modified_timestamp")
     private LocalDateTime lastModifiedTimestamp;

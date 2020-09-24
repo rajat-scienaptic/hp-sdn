@@ -21,4 +21,6 @@ public class Country {
 
     @Column(name = "country_marketplace")
     private String countryMarketPlace;
+    @Column(name = "short_name")
+    private String shortName;
 }

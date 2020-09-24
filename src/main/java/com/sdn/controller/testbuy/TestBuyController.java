@@ -20,6 +20,16 @@ public class TestBuyController {
 
     @PostMapping("/getAllTestBuyDataWithFilter")
     public final ResponseEntity<Object> getAllSdnDataWithFilter(@RequestBody TestBuyFilterRequestDTO testBuyFilterRequestDTO) {
-        return new ResponseEntity<>(testBuyService.getAllSTestBuyDataWithFilter(testBuyFilterRequestDTO), HttpStatus.OK);
+        return new ResponseEntity<>(testBuyService.getAllTestBuyDataWithFilter(testBuyFilterRequestDTO), HttpStatus.OK);
+    }
+
+    @GetMapping("/getSkus/{countryMarketPlace}")
+    public final ResponseEntity<Object> getSkusByCountryMarketPlace(@PathVariable("countryMarketPlace") final String countryMarketPlace) {
+        return new ResponseEntity<>(testBuyService.getSkusByCountryMarketPlace(countryMarketPlace), HttpStatus.OK);
+    }
+
+    @GetMapping("/getAllSkus")
+    public final ResponseEntity<Object> getAllSkus() {
+        return new ResponseEntity<>(testBuyService.getAllSkus(), HttpStatus.OK);
     }
 }

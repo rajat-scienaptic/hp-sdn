@@ -55,6 +55,8 @@ public class SdnData {
     private String notes;
     @Column(name = "type")
     private String type;
+    @Column(name = "outcome")
+    private String outcome;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy HH:mm:ss")
     @Column(name = "created_timestamp")
     private LocalDateTime createdTimestamp;

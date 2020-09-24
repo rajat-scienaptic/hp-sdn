@@ -34,27 +34,46 @@ public class TestBuyServiceImpl implements TestBuyService {
 
     @Override
     public List<TestBuy> getTestBuyData() {
-//        Date date = new Date();
-//        GregorianCalendar cal = new GregorianCalendar();
-//        cal.setTime(date);
-//        cal.add(Calendar.DATE, -7);
         return testBuyRepository.getTestBuyData();
     }
 
     @Override
-    public List<TestBuy> getAllSTestBuyDataWithFilter(TestBuyFilterRequestDTO testBuyFilterRequestDTO) {
+    public List<TestBuy> getAllTestBuyDataWithFilter(TestBuyFilterRequestDTO testBuyFilterRequestDTO) {
         if (testBuyFilterRequestDTO.getCustomerMarket() == null || testBuyFilterRequestDTO.getCustomerMarket().isEmpty()) {
             return findTestBuyDataByCriteria(testBuyFilterRequestDTO, null);
         } else {
             Region region = regionRepository.findByCustomerMarket(testBuyFilterRequestDTO.getCustomerMarket());
             List<TestBuy> testBuyDataList = new LinkedList<>();
-            for (Country country : region.getCountries()) {
-                List<TestBuy> sdnData = findTestBuyDataByCriteria(testBuyFilterRequestDTO, country.getCountryMarketPlace());
-                testBuyDataList = Stream.concat(testBuyDataList.stream(), sdnData.stream())
+            List<String> existingCountries = testBuyRepository.getUniqueCountriesFromTestBuy();
+            List<String> countryShortNameList = new LinkedList<>();
+            region.getCountries().forEach(country -> countryShortNameList.add(country.getShortName()));
+            List<String> matchingCountries = existingCountries.stream()
+                    .filter(countryShortNameList::contains)
+                    .collect(Collectors.toList());
+            for (String countryMarketPlace : matchingCountries) {
+                List<TestBuy> testBuyList = findTestBuyDataByCriteria(testBuyFilterRequestDTO, countryMarketPlace);
+                testBuyDataList = Stream.concat(testBuyDataList.stream(), testBuyList.stream())
                         .collect(Collectors.toList());
             }
             return testBuyDataList;
         }
+    }
+
+    @Override
+    public List<String> getSkusByCountryMarketPlace(String countryMarketPlace) {
+        Region region = regionRepository.findByCustomerMarket(countryMarketPlace);
+        List<String> skuList = new LinkedList<>();
+        for (Country country : region.getCountries()) {
+            List<String> sdnData = testBuyRepository.getSkuByCountryMarketPlace(country.getShortName());
+            skuList = Stream.concat(skuList.stream(), sdnData.stream())
+                    .collect(Collectors.toList());
+        }
+        return skuList;
+    }
+
+    @Override
+    public List<String> getAllSkus() {
+        return testBuyRepository.getAllSkus();
     }
 
     public List<TestBuy> findTestBuyDataByCriteria(TestBuyFilterRequestDTO testBuyFilterRequestDTO, String countryMarketPlace) {

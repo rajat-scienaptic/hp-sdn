@@ -15,10 +15,12 @@ com\sdn\SdnMonitoringToolApplication.class
 com\sdn\model\sdn\SdnActivityLogs$SdnActivityLogsBuilder.class
 com\sdn\exceptions\GlobalExceptionHandlerController$Error.class
 com\sdn\model\sdn\SdnContractualMonitoringGoogle.class
+com\sdn\model\testbuy\TestBuyDataChangeLogs$TestBuyDataChangeLogsBuilder.class
 com\sdn\service\impl\PipelineServiceImpl.class
 com\sdn\model\sdn\Partner$PartnerBuilder.class
 com\sdn\model\sdn\SdnEnforcements.class
 com\sdn\model\sdn\SdcViolations.class
+com\sdn\model\testbuy\TestBuyDataChangeLogs.class
 com\sdn\dto\ApiResponseDTO$ApiResponseDTOBuilder.class
 com\sdn\exceptions\CustomException.class
 com\sdn\service\impl\sdn\SdnServiceImpl.class

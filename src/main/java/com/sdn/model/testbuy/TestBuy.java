@@ -16,44 +16,44 @@ import java.util.Date;
 @Entity
 @Table(name = "test_buy")
 public class TestBuy {
-  @Id
-  @GeneratedValue(strategy= GenerationType.IDENTITY)
-  @Column(name = "id")
-  private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
 
-  @Column(name = "country_marketplace")
-  private String countryMarketPlace;
-  @Column(name = "seller_name")
-  private String sellerName;
-  @Column(name = "country_seller")
-  private String countrySeller;
-  @Column(name = "co_search_seller_info")
-  private String coSearchSellerInfo;
-  @Column(name = "partner_id")
-  private String partnerId;
-  @Column(name = "attended_seller")
-  private String attendedSeller;
-  @Column(name = "ink_toner")
-  private String inkToner;
-  @Column(name = "sku_number")
-  private String skuNumber;
-  @Column(name = "total_price_paid")
-  private String totalPricePaid;
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
-  @Column(name = "date_of_request")
-  private Date dateOfRequest;
-  @Column(name = "determinition")
-  private String determinition;
-  @Column(name = "is_fraudulent_and_used")
-  private String isFraudulentAndUsed;
-  @Column(name = "is_valid_warranty")
-  private String isValidWarranty;
-  @Column(name = "is_correct_product_shipment")
-  private String isCorrectProductShipment;
-  @Column(name = "is_incorrect_paging")
-  private String isIncorrectPaging;
-  @Column(name = "t1_seller")
-  private String t1Seller;
-  @Column(name = "t2_seller")
-  private String t2Seller;
+    @Column(name = "country_marketplace")
+    private String countryMarketPlace;
+    @Column(name = "seller_name")
+    private String sellerName;
+    @Column(name = "country_seller")
+    private String countrySeller;
+    @Column(name = "co_search_seller_info")
+    private String coSearchSellerInfo;
+    @Column(name = "partner_id")
+    private String partnerId;
+    @Column(name = "attended_seller")
+    private String attendedSeller;
+    @Column(name = "ink_toner")
+    private String inkToner;
+    @Column(name = "sku_number")
+    private String skuNumber;
+    @Column(name = "total_price_paid")
+    private String totalPricePaid;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+    @Column(name = "date_of_request")
+    private Date dateOfRequest;
+    @Column(name = "determination")
+    private String determination;
+    @Column(name = "is_fraudulent_and_used")
+    private String isFraudulentAndUsed;
+    @Column(name = "is_valid_warranty")
+    private String isValidWarranty;
+    @Column(name = "is_correct_product_shipment")
+    private String isCorrectProductShipment;
+    @Column(name = "is_incorrect_paging")
+    private String isIncorrectPaging;
+    @Column(name = "t1_seller")
+    private String t1Seller;
+    @Column(name = "t2_seller")
+    private String t2Seller;
 }
