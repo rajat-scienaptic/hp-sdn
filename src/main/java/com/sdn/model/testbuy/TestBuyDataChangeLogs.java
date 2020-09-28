@@ -44,16 +44,16 @@ public class TestBuyDataChangeLogs {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     @Column(name = "date_of_request")
     private Date dateOfRequest;
-    @Column(name = "determinition")
-    private String determinition;
+    @Column(name = "determination")
+    private String determination;
     @Column(name = "is_fraudulent_and_used")
     private String isFraudulentAndUsed;
     @Column(name = "is_valid_warranty")
     private String isValidWarranty;
     @Column(name = "is_correct_product_shipment")
     private String isCorrectProductShipment;
-    @Column(name = "is_incorrect_paging")
-    private String isIncorrectPaging;
+    @Column(name = "is_incorrect_packaging")
+    private String isIncorrectPackaging;
     @Column(name = "t1_seller")
     private String t1Seller;
     @Column(name = "t2_seller")

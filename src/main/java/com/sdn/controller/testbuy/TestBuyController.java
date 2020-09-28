@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping(value = "/api/v1")
+@RequestMapping(value = "/api/v1/testbuy")
 @RestController
 public class TestBuyController {
     @Autowired

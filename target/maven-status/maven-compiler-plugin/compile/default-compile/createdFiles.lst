@@ -19,6 +19,7 @@ com\sdn\model\testbuy\TestBuyDataChangeLogs$TestBuyDataChangeLogsBuilder.class
 com\sdn\service\impl\PipelineServiceImpl.class
 com\sdn\model\sdn\Partner$PartnerBuilder.class
 com\sdn\model\sdn\SdnEnforcements.class
+com\sdn\config\EmailConfig.class
 com\sdn\model\sdn\SdcViolations.class
 com\sdn\model\testbuy\TestBuyDataChangeLogs.class
 com\sdn\dto\ApiResponseDTO$ApiResponseDTOBuilder.class
@@ -31,6 +32,7 @@ com\sdn\model\sdn\Region.class
 com\sdn\model\sdn\SdnData.class
 com\sdn\repository\sdn\SdnDataChangeLogsRepository.class
 com\sdn\service\sdn\SdnCrudService.class
+com\sdn\dto\EmailRequestDto.class
 com\sdn\model\testbuy\TestBuy.class
 com\sdn\controller\testbuy\TestBuyController.class
 com\sdn\dto\sdn\CountrySkuDTO.class
@@ -43,6 +45,7 @@ com\sdn\repository\sdn\SdnTransactionMonitoringWebsitesRepository.class
 com\sdn\exceptions\GlobalExceptionHandlerController$FieldError.class
 com\sdn\service\impl\UserValidationServiceImpl.class
 com\sdn\model\testbuy\TestBuy$TestBuyBuilder.class
+com\sdn\repository\SkuTypeRepository.class
 com\sdn\model\sdn\SdcViolationsType.class
 com\sdn\service\UserValidationService.class
 com\sdn\repository\sdn\PartnerRepository.class
@@ -52,6 +55,8 @@ com\sdn\service\testbuy\TestBuyService.class
 com\sdn\model\sdn\SdnActivityLogs.class
 com\sdn\controller\PipelineController.class
 com\sdn\model\sdn\SdcViolations$SdcViolationsBuilder.class
+com\sdn\service\EmailService.class
+com\sdn\dto\EmailRequestDto$EmailRequestDtoBuilder.class
 com\sdn\controller\sdn\SDNController.class
 com\sdn\model\sdn\Partner.class
 com\sdn\model\User.class
@@ -62,6 +67,8 @@ com\sdn\config\SwaggerConfig.class
 com\sdn\dto\sdn\SdnFilterRequestDTO.class
 com\sdn\dto\ApiResponseDTO.class
 com\sdn\repository\sdn\SdnContractualMonitoringGoogleRepository.class
+com\sdn\model\SkuType.class
+com\sdn\model\SkuNumberMapping.class
 com\sdn\repository\sdn\SdnEnforcementsRepository.class
 com\sdn\model\sdn\SdnDataChangeLogs.class
 com\sdn\constants\Constants.class

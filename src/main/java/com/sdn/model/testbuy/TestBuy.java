@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Builder(toBuilder = true)
@@ -50,10 +51,12 @@ public class TestBuy {
     private String isValidWarranty;
     @Column(name = "is_correct_product_shipment")
     private String isCorrectProductShipment;
-    @Column(name = "is_incorrect_paging")
-    private String isIncorrectPaging;
+    @Column(name = "is_incorrect_packaging")
+    private String isIncorrectPackaging;
     @Column(name = "t1_seller")
     private String t1Seller;
     @Column(name = "t2_seller")
     private String t2Seller;
+    @Column(name = "created_timestamp")
+    private LocalDateTime createdTimestamp;
 }

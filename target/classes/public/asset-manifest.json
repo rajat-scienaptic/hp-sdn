@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "./static/css/main.34365ba0.chunk.css",
+    "main.js": "./static/js/main.d9910463.chunk.js",
+    "main.js.map": "./static/js/main.d9910463.chunk.js.map",
+    "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
+    "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
+    "static/css/2.df04db45.chunk.css": "./static/css/2.df04db45.chunk.css",
+    "static/js/2.20387e3f.chunk.js": "./static/js/2.20387e3f.chunk.js",
+    "static/js/2.20387e3f.chunk.js.map": "./static/js/2.20387e3f.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.4c8ba5cf998c8c7108f88a0ba6c9c0ce.js": "./precache-manifest.4c8ba5cf998c8c7108f88a0ba6c9c0ce.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.df04db45.chunk.css.map": "./static/css/2.df04db45.chunk.css.map",
+    "static/css/main.34365ba0.chunk.css.map": "./static/css/main.34365ba0.chunk.css.map",
+    "static/media/Hp.png": "./static/media/Hp.aee7ce1a.png",
+    "static/media/index.css": "./static/media/hpsimplified_lt-webfont.dbd791b7.ttf"
+  }
+}

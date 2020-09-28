@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.text.ParseException;
 
-@RequestMapping(value = "/api/v1")
+@RequestMapping(value = "/api/v1/sdn")
 @RestController
 public class SDNController {
     @Autowired
