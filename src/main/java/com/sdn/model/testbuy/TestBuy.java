@@ -38,6 +38,8 @@ public class TestBuy {
     private String inkToner;
     @Column(name = "sku_number")
     private String skuNumber;
+    @Column(name = "sku_type")
+    private String skuType;
     @Column(name = "total_price_paid")
     private String totalPricePaid;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")

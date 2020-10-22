@@ -7,11 +7,11 @@ import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 
 @Configuration
 public class EmailConfig {
-	@Primary
-	@Bean
-	public FreeMarkerConfigurationFactoryBean fmfbean() {
-		FreeMarkerConfigurationFactoryBean bean = new FreeMarkerConfigurationFactoryBean();
-		bean.setTemplateLoaderPath("classpath:/email");
-		return bean;
-	}
+    @Primary
+    @Bean
+    public FreeMarkerConfigurationFactoryBean fmfbean() {
+        FreeMarkerConfigurationFactoryBean bean = new FreeMarkerConfigurationFactoryBean();
+        bean.setTemplateLoaderPath("classpath:/email");
+        return bean;
+    }
 }

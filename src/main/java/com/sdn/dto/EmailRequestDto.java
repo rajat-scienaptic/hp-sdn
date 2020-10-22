@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class EmailRequestDto {
-	private String from;
-	private String to;
-	private String subject;
-	private String name;
+    private String from;
+    private String to;
+    private String subject;
+    private String name;
 }

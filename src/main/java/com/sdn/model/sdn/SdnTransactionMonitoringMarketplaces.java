@@ -4,14 +4,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "sdn_transaction_monitoring_marketplaces")
 @Data
 public class SdnTransactionMonitoringMarketplaces {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
     @Column(name = "url")
@@ -23,7 +22,7 @@ public class SdnTransactionMonitoringMarketplaces {
     @Column(name = "seller_name")
     private String sellerName;
     @Column(name = "seller_id")
-    private int sellerId;
+    private String sellerId;
     @Column(name = "seller_location")
     private String sellerLocation;
     @Column(name = "sku")
@@ -34,33 +33,33 @@ public class SdnTransactionMonitoringMarketplaces {
     @Column(name = "publication_date")
     private String publicationDate;
     @Column(name = "seller_id_and_contract_details")
-    private Integer sellerIdAndContractDetails;
+    private String sellerIdAndContractDetails;
     @Column(name = "vat")
-    private Integer vat;
+    private String vat;
     @Column(name = "phone_number")
-    private Integer phoneNumber;
+    private String phoneNumber;
     @Column(name = "email_address")
-    private Integer emailAddress;
+    private String emailAddress;
     @Column(name = "physical_address")
-    private Integer physicalAddress;
+    private String physicalAddress;
     @Column(name = "correct_image")
-    private Integer correctImage;
+    private String correctImage;
     @Column(name = "naming")
-    private Integer naming;
+    private String naming;
     @Column(name = "product_name")
-    private Integer productName;
-    @Column(name = "sku_number")
-    private Integer skuNumber;
+    private String productName;
+    @Column(name = "sku_naming")
+    private String skuNaming;
     @Column(name = "compatible_printers")
-    private Integer compatiblePrinters;
+    private String compatiblePrinters;
     @Column(name = "co_operation")
-    private Integer coOperation;
+    private String coOperation;
     @Column(name = "avoid_customer_confusion")
-    private Integer avoidCustomerConfusion;
+    private String avoidCustomerConfusion;
     @Column(name = "grey_trade")
-    private Integer greyTrade;
+    private String greyTrade;
     @Column(name = "shopping_experience")
-    private Integer shoppingExperience;
-    @Column(name = "created_timestamp")
-    private LocalDateTime createdTimestamp;
+    private String shoppingExperience;
+//    @Column(name = "created_timestamp")
+//    private LocalDateTime createdTimestamp;
 }

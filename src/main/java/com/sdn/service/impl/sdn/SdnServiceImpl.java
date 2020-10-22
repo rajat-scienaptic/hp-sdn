@@ -48,8 +48,8 @@ public class SdnServiceImpl implements SdnCrudService {
     @Autowired
     protected SkuTypeRepository skuTypeRepository;
 
-    Logger logger = LoggerFactory.getLogger(SdnServiceImpl.class);
-    SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_PATTERN);
+    protected Logger logger = LoggerFactory.getLogger(SdnServiceImpl.class);
+    protected SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_PATTERN);
 
     @Override
     public List<SdnData> getAllSdnData() {
@@ -84,7 +84,12 @@ public class SdnServiceImpl implements SdnCrudService {
                         predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("countryMarketPlace"), countryMarketPlace)));
                     }
                     if (sdnFilterRequestDTO.getSku() != null && !sdnFilterRequestDTO.getSku().isEmpty()) {
-                        predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("typeOfSku"), sdnFilterRequestDTO.getSku())));
+                        if (sdnFilterRequestDTO.getSku().equalsIgnoreCase("A-SKU")) {
+                            predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("typeOfSku"), "A-SKU Ink")));
+                            predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("typeOfSku"), "A-SKU Toner")));
+                        } else {
+                            predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("typeOfSku"), sdnFilterRequestDTO.getSku())));
+                        }
                     }
                     if ((sdnFilterRequestDTO.getStartDate() != null && !sdnFilterRequestDTO.getStartDate().isEmpty()) && (sdnFilterRequestDTO.getEndDate() != null && !sdnFilterRequestDTO.getEndDate().isEmpty())) {
                         try {
@@ -150,10 +155,12 @@ public class SdnServiceImpl implements SdnCrudService {
                 .countrySeller(data.getCountrySeller())
                 .countryMarketPlace(data.getCountryMarketPlace())
                 .attendedSeller(data.getAttendedSeller())
+                .partnerName(data.getPartnerName())
                 .partnerId(data.getPartnerId())
                 .sdcScoring(data.getSdcScoring())
                 .enforcementsStatus(data.getEnforcementsStatus())
                 .enforcementsDate(data.getEnforcementsDate())
+                .outcome(data.getOutcome())
                 .notes(data.getNotes())
                 .date(data.getDate())
                 .dataId(data.getId())
@@ -250,7 +257,7 @@ public class SdnServiceImpl implements SdnCrudService {
                             sdnData.setSellerName(currentCell.getStringCellValue());
                             break;
                         case 3:
-                            sdnData.setPartnerId((int) currentCell.getNumericCellValue());
+                            sdnData.setPartnerId(currentCell.getStringCellValue());
                             break;
                         case 4:
                             sdnData.setAttendedSeller(currentCell.getStringCellValue());

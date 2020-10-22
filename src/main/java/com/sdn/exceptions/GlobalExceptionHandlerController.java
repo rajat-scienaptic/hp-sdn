@@ -55,6 +55,7 @@ public final class GlobalExceptionHandlerController {
                 .build(), HttpStatus.valueOf(403));
 
     }
+
     public final void handleCustomException(HttpServletResponse res, CustomException e) throws IOException {
         LOG.error("ERROR", e);
         res.sendError(e.getHttpStatus().value(), e.getMessage());
@@ -105,7 +106,7 @@ public final class GlobalExceptionHandlerController {
 
     private Error processFieldErrors(List<org.springframework.validation.FieldError> fieldErrors) {
         Error error = new Error(BAD_REQUEST.value(), "validation error");
-        for (org.springframework.validation.FieldError fieldError: fieldErrors) {
+        for (org.springframework.validation.FieldError fieldError : fieldErrors) {
             error.addFieldError(Objects.requireNonNull(fieldError.getRejectedValue()).getClass().getName(), fieldError.getField(), fieldError.getDefaultMessage());
         }
         return error;
@@ -129,7 +130,7 @@ public final class GlobalExceptionHandlerController {
 
     @Data
     @AllArgsConstructor
-    static final class FieldError{
+    static final class FieldError {
         final String type;
         final String path;
         final String message;

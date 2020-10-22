@@ -18,7 +18,7 @@ import java.util.Date;
 @Table(name = "sdn_data")
 public class SdnData {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
@@ -28,8 +28,10 @@ public class SdnData {
     private String countrySeller;
     @Column(name = "seller_name")
     private String sellerName;
+    @Column(name = "partner_name")
+    private String partnerName;
     @Column(name = "partner_id")
-    private Integer partnerId;
+    private String partnerId;
     @Column(name = "type_of_partner")
     private String typeOfPartner;
     @Column(name = "attended_seller")

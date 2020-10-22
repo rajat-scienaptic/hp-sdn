@@ -1,5 +1,7 @@
 package com.sdn.service;
 
+import java.io.IOException;
+
 public interface EmailService {
-    void sendEmail();
+    void sendEmail() throws IOException;
 }

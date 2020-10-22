@@ -12,12 +12,19 @@ import java.util.List;
 import java.util.Optional;
 
 public interface SdnCrudService {
- List<SdnData> getAllSdnData();
- List<SdnData> getAllSdnDataWithFilter(SdnFilterRequestDTO sdnFilterRequestDTO);
- Optional<SdnData> updateSdnData(int id, SdnDataDTO sdnDataDTO, String cookies) throws ParseException;
- List<SdnDataChangeLogs> archiveSdnData(int id);
- List<String> getRegions();
- List<String> getSkus(SdnFilterRequestDTO sdnFilterRequestDTO);
- void fillSDNData(MultipartFile file);
- List<SdcViolations> getSdcViolations();
+    List<SdnData> getAllSdnData();
+
+    List<SdnData> getAllSdnDataWithFilter(SdnFilterRequestDTO sdnFilterRequestDTO);
+
+    Optional<SdnData> updateSdnData(int id, SdnDataDTO sdnDataDTO, String cookies) throws ParseException;
+
+    List<SdnDataChangeLogs> archiveSdnData(int id);
+
+    List<String> getRegions();
+
+    List<String> getSkus(SdnFilterRequestDTO sdnFilterRequestDTO);
+
+    void fillSDNData(MultipartFile file);
+
+    List<SdcViolations> getSdcViolations();
 }

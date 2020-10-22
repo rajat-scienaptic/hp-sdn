@@ -7,7 +7,10 @@ import java.util.List;
 
 public interface TestBuyService {
     List<TestBuy> getTestBuyData();
+
     List<TestBuy> getAllTestBuyDataWithFilter(TestBuyFilterRequestDTO testBuyFilterRequestDTO);
+
     List<String> getSkusByCountryMarketPlace(String countryMarketPlace);
+
     List<String> getAllSkus();
 }

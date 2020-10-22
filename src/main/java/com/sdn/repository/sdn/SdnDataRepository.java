@@ -4,6 +4,7 @@ import com.sdn.model.sdn.SdnData;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public interface SdnDataRepository extends CrudRepository<SdnData, Integer>, JpaSpecificationExecutor<SdnData> {
+public interface SdnDataRepository extends PagingAndSortingRepository<SdnData, Integer>,  CrudRepository<SdnData, Integer>, JpaSpecificationExecutor<SdnData> {
     @Query(value = "select s from SdnData s where s.sdcScoring <= 10 and (s.date between :d1 and :d2)")
     List<SdnData> getSdnData(@Param("d1") Date d1, @Param("d2") Date d2);
 
@@ -34,4 +35,7 @@ public interface SdnDataRepository extends CrudRepository<SdnData, Integer>, Jpa
 
     @Query(value = "select distinct(s.typeOfSku) from SdnData s where s.countryMarketPlace = :countryMarketPlace and s.type = :type and s.typeOfSku is not null")
     List<String> getSkuByCustomerMarketAndType(@Param("countryMarketPlace") String countryMarketPlace, @Param("type") String type);
+
+//    @Query(value = "Select s from SdnData s where Date(s.createdTimestamp) = :date and s.fileType = :fileType")
+//    List<SdnData> getDataForToday(@Param("date") Date date, @Param("fileType") String fileType);
 }

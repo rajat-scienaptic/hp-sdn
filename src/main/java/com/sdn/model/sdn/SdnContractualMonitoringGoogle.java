@@ -1,18 +1,20 @@
 package com.sdn.model.sdn;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "sdn_contractual_monitoring_google")
 @Data
 public class SdnContractualMonitoringGoogle {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @JsonIgnoreProperties(ignoreUnknown = true, value = {"id"})
     private Integer id;
+
     @Column(name = "sku")
     private String sku;
     @Column(name = "sku_type")
@@ -29,6 +31,4 @@ public class SdnContractualMonitoringGoogle {
     private Integer position;
     @Column(name = "collection_date")
     private String collectionDate;
-    @Column(name = "created_timestamp")
-    private LocalDateTime createdTimestamp;
 }

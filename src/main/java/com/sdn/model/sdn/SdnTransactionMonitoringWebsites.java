@@ -1,17 +1,20 @@
 package com.sdn.model.sdn;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "sdn_transaction_monitoring_websites")
 @Data
 public class SdnTransactionMonitoringWebsites {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
     @Column(name = "sku")
@@ -30,33 +33,33 @@ public class SdnTransactionMonitoringWebsites {
     @Column(name = "review_date")
     private String reviewDate;
     @Column(name = "seller_id_and_contract_details")
-    private Integer sellerIdAndContractDetails;
+    private String sellerIdAndContractDetails;
     @Column(name = "vat")
-    private Integer vat;
+    private String vat;
     @Column(name = "physical_address")
-    private Integer physicalAddress;
+    private String physicalAddress;
     @Column(name = "email_address")
-    private Integer emailAddress;
+    private String emailAddress;
     @Column(name = "phone_number")
-    private Integer phoneNumber;
+    private String phoneNumber;
     @Column(name = "correct_image")
-    private Integer correctImage;
+    private String correctImage;
     @Column(name = "naming")
-    private Integer naming;
+    private String naming;
     @Column(name = "product_name")
-    private Integer productName;
-    @Column(name = "sku_number")
-    private Integer skuNumber;
+    private String productName;
+    @Column(name = "sku_naming")
+    private String skuNaming;
     @Column(name = "compatible_printers")
-    private Integer compatiblePrinters;
+    private String compatiblePrinters;
     @Column(name = "co_operation")
-    private Integer coOperation;
+    private String coOperation;
     @Column(name = "avoid_customer_confusion")
-    private Integer avoidCustomerConfusion;
+    private String avoidCustomerConfusion;
     @Column(name = "grey_trade")
-    private Integer greyTrade;
+    private String greyTrade;
     @Column(name = "shopping_experience")
-    private Integer shoppingExperience;
-    @Column(name = "created_timestamp")
-    private LocalDateTime createdTimestamp;
+    private String shoppingExperience;
+//    @Column(name = "created_timestamp")
+//    private LocalDateTime createdTimestamp;
 }

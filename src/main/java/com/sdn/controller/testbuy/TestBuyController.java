@@ -14,7 +14,7 @@ public class TestBuyController {
     TestBuyService testBuyService;
 
     @GetMapping("/getAllTestBuyData")
-    public final ResponseEntity<Object> getTestBuyData(){
+    public final ResponseEntity<Object> getTestBuyData() {
         return new ResponseEntity<>(testBuyService.getTestBuyData(), HttpStatus.OK);
     }
 

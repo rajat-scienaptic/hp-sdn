@@ -3,14 +3,13 @@ package com.sdn.model.sdn;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "sdn_contractual_monitoring_marketplaces")
 @Data
 public class SdnContractualMonitoringMarketPlaces {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
     @Column(name = "url")
@@ -18,11 +17,11 @@ public class SdnContractualMonitoringMarketPlaces {
     @Column(name = "platform")
     private String platform;
     @Column(name = "country_marketplace")
-    private String countryMarketPlace;
+    private String countryMarketplace;
     @Column(name = "seller_name")
     private String sellerName;
     @Column(name = "seller_id")
-    private Integer sellerId;
+    private String sellerId;
     @Column(name = "seller_location")
     private String sellerLocation;
     @Column(name = "sku")
@@ -31,6 +30,6 @@ public class SdnContractualMonitoringMarketPlaces {
     private String skuType;
     @Column(name = "publication_date")
     private String publicationDate;
-    @Column(name = "created_timestamp")
-    private LocalDateTime createdTimestamp;
+//    @Column(name = "created_timestamp")
+//    private LocalDateTime createdTimestamp;
 }

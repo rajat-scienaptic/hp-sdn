@@ -1,21 +1,15 @@
 package com.sdn.model.sdn;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "sdn_enforcements")
-@Builder(toBuilder = true)
 @Data
 public class SdnEnforcements {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
     @Column(name = "url")
@@ -36,8 +30,10 @@ public class SdnEnforcements {
     private String skuType;
     @Column(name = "publication_date")
     private String publicationDate;
-    @Column(name = "notification_letter_sent_date")
+    @Column(name = "notice_letter_sent_date")
     private String noticeLetterSentDate;
     @Column(name = "warning_letter_sent_date")
     private String warningLetterSentDate;
+    @Column(name = "status")
+    private String status;
 }

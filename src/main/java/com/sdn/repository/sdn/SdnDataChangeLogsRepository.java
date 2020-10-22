@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SdnDataChangeLogsRepository extends JpaRepository<SdnDataChangeLogs,Integer> {
-  List<SdnDataChangeLogs> findAllByDataId(int id);
+public interface SdnDataChangeLogsRepository extends JpaRepository<SdnDataChangeLogs, Integer> {
+    List<SdnDataChangeLogs> findAllByDataId(int id);
 }

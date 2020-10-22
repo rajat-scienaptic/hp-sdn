@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Table(name = "sdn_activity_logs")
 public class SdnActivityLogs {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -27,16 +27,20 @@ public class SdnActivityLogs {
     @NotBlank
     @Column(name = "ip")
     private String ip;
-    @NotNull @NotBlank
+    @NotNull
+    @NotBlank
     @Column(name = "endpoint")
     private String endpoint;
-    @NotNull @NotBlank
+    @NotNull
+    @NotBlank
     @Column(name = "type")
     private String type;
-    @NotNull @NotBlank
+    @NotNull
+    @NotBlank
     @Column(name = "status")
     private String status;
-    @NotNull @NotBlank
+    @NotNull
+    @NotBlank
     @Column(name = "message")
     private String message;
     @NotNull

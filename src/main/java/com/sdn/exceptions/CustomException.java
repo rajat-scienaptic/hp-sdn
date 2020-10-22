@@ -2,7 +2,7 @@ package com.sdn.exceptions;
 
 import org.springframework.http.HttpStatus;
 
-public final class CustomException extends RuntimeException{
+public final class CustomException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
     private final String message;

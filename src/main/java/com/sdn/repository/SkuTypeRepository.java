@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface SkuTypeRepository extends JpaRepository<SkuType, Integer> {
-    @Query(value = "Select s.skuType from SkuType s")
+    @Query(value = "Select distinct(s.type) from SkuType s")
     List<String> getAllSkus();
 }
