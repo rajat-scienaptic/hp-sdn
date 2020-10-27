@@ -1,22 +1,21 @@
-pipeline {
-   agent any
+node {
+    stage('Checkout') {
+        git 'https://github.com/rajat-scienaptic/hp-sdn.git'
+    }
 
-   stages {
-      stage('Build') {
-        steps {
-          echo 'Building...'
-          echo "Running ${env.BUILD_ID} ${env.BUILD_DISPLAY_NAME} on ${env.NODE_NAME} and JOB ${env.JOB_NAME}"
-        }
-   }
-   stage('Test') {
+    stage('Build') {
+        sh 'mvn -B -V -U -e clean package'
+    }
+
+    stage('Test') {
      steps {
         echo 'Testing...'
      }
    }
+   
    stage('Deploy') {
      steps {
        echo 'Deploying...'
      }
    }
-  }
 }
